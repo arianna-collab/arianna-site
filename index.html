@@ -186,6 +186,29 @@
     line-height:1.5;
     font-size:0.98rem;
   }
+  .card.photo{ padding:0; }
+  .card.photo img{
+    width:100%;
+    height:170px;
+    object-fit:cover;
+    display:block;
+  }
+  .card.photo .card-body{
+    padding:18px 20px 22px;
+  }
+  .card.photo .card-body .icon{
+    font-size:1.5rem;
+    margin-bottom:6px;
+  }
+
+  .photo-credit{
+    text-align:center;
+    font-size:0.78rem;
+    color:#9a6a78;
+    margin-top:34px;
+    opacity:0.8;
+  }
+  .photo-credit a{ color:#c81d4e; }
 
   /* uconn */
   #uconn{ background:linear-gradient(135deg, #fff0f5, #ffe3ec); position:relative; overflow:hidden; }
@@ -245,6 +268,25 @@
     margin:0 auto;
   }
   .music-quote span{ display:block; font-size:1rem; margin-top:6px; font-style:normal; color:#c81d4e; }
+  .music-links{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:22px;
+  }
+  .music-links a{
+    text-decoration:none;
+    background:var(--sea1);
+    color:#fff0f3;
+    padding:10px 20px;
+    border-radius:999px;
+    font-size:0.92rem;
+    font-weight:600;
+    box-shadow:0 6px 16px rgba(122,17,48,0.25);
+    transition:transform .2s ease;
+  }
+  .music-links a:hover{ transform:translateY(-3px); }
 
   /* pets */
   #pets{ background:linear-gradient(180deg, #fff0f5, #ffe4ec); }
@@ -255,21 +297,31 @@
     gap:22px;
     margin-top:10px;
   }
+  .pet-item{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+    width:170px;
+  }
   .pet-card{
     background:white;
     border-radius:50%;
     width:170px; height:170px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
+    overflow:hidden;
     box-shadow:0 10px 22px rgba(200,29,78,0.12);
     transition:transform .3s ease;
+    border:4px solid white;
   }
-  .pet-card:hover{ transform:scale(1.08) rotate(-2deg); }
-  .pet-card .icon{ font-size:3rem; margin-bottom:4px; }
-  .pet-card b{ font-size:1rem; }
-  .pet-card small{ color:#c8677f; }
+  .pet-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .pet-item:hover .pet-card{ transform:scale(1.08) rotate(-2deg); }
+  .pet-item b{ font-size:1rem; }
+  .pet-item small{ color:#c8677f; text-align:center; }
 
   /* footer */
   footer{
@@ -286,6 +338,18 @@
   }
   footer h3{ margin:0 0 6px; font-size:1.4rem; }
   footer p{ margin:0; opacity:0.85; }
+  footer .credits{
+    margin-top:28px;
+    padding-top:18px;
+    border-top:1px solid rgba(255,255,255,0.2);
+    font-size:0.72rem;
+    opacity:0.65;
+    max-width:700px;
+    margin-left:auto;
+    margin-right:auto;
+    line-height:1.6;
+  }
+  footer .credits a{ color:inherit; }
 
   @keyframes fall{
     to{ transform:translateY(420px) translateX(20px); opacity:0; }
@@ -314,10 +378,13 @@
   <h2 class="section-title">🎓 UConn Life</h2>
   <p class="section-sub">Storrs, CT — Junior, always juggling a few too many things.</p>
   <div class="grid">
-    <div class="card">
-      <span class="icon">🐺</span>
-      <h3>University of Connecticut</h3>
-      <p>Junior year, Husky through and through.</p>
+    <div class="card photo">
+      <img src="images/uconn.jpg" alt="University of Connecticut School of Business, Storrs">
+      <div class="card-body">
+        <span class="icon">🐺</span>
+        <h3>University of Connecticut</h3>
+        <p>Junior year, Husky through and through.</p>
+      </div>
     </div>
     <div class="card">
       <span class="icon">📊</span>
@@ -351,25 +418,37 @@
   <h2 class="section-title">⛵ Life on the Water</h2>
   <p class="section-sub">If there's wind, I'm probably out on it.</p>
   <div class="grid">
-    <div class="card">
-      <span class="icon">🌊</span>
-      <h3>Lasers</h3>
-      <p>Fast, tippy, and unforgiving — my favorite way to get humbled by the wind.</p>
+    <div class="card photo">
+      <img src="images/laser.jpg" alt="A Laser sailing dinghy on the water">
+      <div class="card-body">
+        <span class="icon">🌊</span>
+        <h3>Lasers</h3>
+        <p>Fast, tippy, and unforgiving — my favorite way to get humbled by the wind.</p>
+      </div>
     </div>
-    <div class="card">
-      <span class="icon">🚤</span>
-      <h3>420s</h3>
-      <p>Two-person boats, twice the teamwork (and twice the yelling over the wind).</p>
+    <div class="card photo">
+      <img src="images/dinghy420.jpg" alt="420 sailboats on the water">
+      <div class="card-body">
+        <span class="icon">🚤</span>
+        <h3>420s</h3>
+        <p>Two-person boats, twice the teamwork (and twice the yelling over the wind).</p>
+      </div>
     </div>
-    <div class="card">
-      <span class="icon">🛥️</span>
-      <h3>Big Boats</h3>
-      <p>Because sometimes you want the wind in your sails without capsizing.</p>
+    <div class="card photo">
+      <img src="images/bigboat.jpg" alt="A sailboat cruising at sunset">
+      <div class="card-body">
+        <span class="icon">🛥️</span>
+        <h3>Big Boats</h3>
+        <p>Because sometimes you want the wind in your sails without capsizing.</p>
+      </div>
     </div>
-    <div class="card">
-      <span class="icon">🏆</span>
-      <h3>Sailing Coach</h3>
-      <p>Every summer I coach Opti racers — pint-sized skippers with big competitive energy.</p>
+    <div class="card photo">
+      <img src="images/opti.jpg" alt="A young sailor racing an Optimist dinghy">
+      <div class="card-body">
+        <span class="icon">🏆</span>
+        <h3>Sailing Coach</h3>
+        <p>Every summer I coach Opti racers — pint-sized skippers with big competitive energy.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -379,15 +458,21 @@
   <h2 class="section-title">🏔️ Trading Sails for Snow</h2>
   <p class="section-sub">When the water freezes, the mountain calls.</p>
   <div class="grid">
-    <div class="card">
-      <span class="icon">⛷️</span>
-      <h3>Skiing</h3>
-      <p>Carving down the mountain, one questionable line choice at a time.</p>
+    <div class="card photo">
+      <img src="images/skiing.jpg" alt="An alpine skier racing downhill">
+      <div class="card-body">
+        <span class="icon">⛷️</span>
+        <h3>Skiing</h3>
+        <p>Carving down the mountain, one questionable line choice at a time.</p>
+      </div>
     </div>
-    <div class="card">
-      <span class="icon">🏂</span>
-      <h3>Snowboarding</h3>
-      <p>Sideways down the slope, powder days non-negotiable.</p>
+    <div class="card photo">
+      <img src="images/snowboarding.jpg" alt="A snowboarder catching air">
+      <div class="card-body">
+        <span class="icon">🏂</span>
+        <h3>Snowboarding</h3>
+        <p>Sideways down the slope, powder days non-negotiable.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -400,39 +485,55 @@
     <span>Zach Bryan on repeat — every road trip, every mood.</span>
     <span>All-time favorite song: "Courtesy of the Red, White and Blue" — Toby Keith 🎵</span>
   </p>
+  <div class="music-links">
+    <a href="https://www.youtube.com/results?search_query=Zach+Bryan" target="_blank" rel="noopener">▶ Zach Bryan on YouTube</a>
+    <a href="https://www.youtube.com/results?search_query=Toby+Keith+Courtesy+of+the+Red+White+and+Blue" target="_blank" rel="noopener">▶ "Courtesy of the Red, White and Blue"</a>
+  </div>
 </section>
 
 <section class="block" id="pets">
   <h2 class="section-title">🐾 The Real Bosses</h2>
   <p class="section-sub">Jack &amp; Bucca (the Westies), Cardi &amp; Lizzo (the cats) — zero days off.</p>
   <div class="pet-row">
-    <div class="pet-card">
-      <span class="icon">🐕</span>
+    <div class="pet-item">
+      <div class="pet-card"><img src="images/westie.jpg" alt="A West Highland White Terrier"></div>
       <b>Jack</b>
       <small>professional zoomie enthusiast</small>
     </div>
-    <div class="pet-card">
-      <span class="icon">🐕‍🦺</span>
+    <div class="pet-item">
+      <div class="pet-card"><img src="images/westie.jpg" alt="A West Highland White Terrier"></div>
       <b>Bucca</b>
       <small>backup zoomie enthusiast</small>
     </div>
-    <div class="pet-card">
-      <span class="icon">🐈</span>
+    <div class="pet-item">
+      <div class="pet-card"><img src="images/cat1.jpg" alt="An orange tabby cat"></div>
       <b>Cardi</b>
       <small>supervises everything</small>
     </div>
-    <div class="pet-card">
-      <span class="icon">🐈‍⬛</span>
+    <div class="pet-item">
+      <div class="pet-card"><img src="images/cat2.jpg" alt="A black cat"></div>
       <b>Lizzo</b>
       <small>agrees with nothing</small>
     </div>
   </div>
+  <p class="photo-credit">Photos are representative stock photos (free-licensed via Wikimedia Commons), not Jack, Bucca, Cardi &amp; Lizzo themselves — send me real ones and I'll swap them in!</p>
 </section>
 
 <footer>
   <div class="paws">🐾 🐾 🐾</div>
   <h3>Arianna Kedersha</h3>
   <p>Sailor · Coach · Mountain enthusiast · Zach Bryan superfan</p>
+  <p class="credits">
+    Stock photos via Wikimedia Commons:
+    Westie by Dominic Nelson (<a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a>) ·
+    Orange cat by LauraDelga (<a href="https://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener">CC BY 4.0</a>) ·
+    Black cat by Tom Kota (<a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a>) ·
+    Optimist dinghy by Ilya (<a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener">CC BY-SA 3.0</a>) ·
+    Skiing by SKas (<a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a>) ·
+    Snowboarding by Letartean (<a href="https://creativecommons.org/licenses/by/3.0" target="_blank" rel="noopener">CC BY 3.0</a>) ·
+    UConn School of Business by John Phelan (<a href="https://creativecommons.org/licenses/by/3.0" target="_blank" rel="noopener">CC BY 3.0</a>) ·
+    Laser, 420 &amp; sunset sailboat photos are CC0 (public domain)
+  </p>
 </footer>
 
 <script>
