@@ -4,29 +4,37 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Arianna Kedersha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --sky1:#ffd6e0;
-    --sky2:#fff0f3;
-    --sea1:#7a1130;
-    --sea2:#c81d4e;
-    --sea3:#ff6b8b;
-    --sun:#ffd166;
-    --ink:#3a0d1a;
+    --sky1:#f2dde1;
+    --sky2:#faf4f2;
+    --sea1:#521b2c;
+    --sea2:#8c2c42;
+    --sea3:#c07685;
+    --sun:#e3c07f;
+    --ink:#2b1a20;
     --card:#ffffff;
-    --accent:#ff6b6b;
-    --accent2:#ff8fa3;
-    --accent3:#c81d4e;
+    --accent:#a83a48;
+    --accent2:#c98a92;
+    --accent3:#7a2436;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{
-    font-family:'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-family:'Inter', system-ui, -apple-system, sans-serif;
     background:var(--sky2);
     color:var(--ink);
     overflow-x:hidden;
   }
   a{color:inherit;}
+  h1,h2,h3{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:600;
+    letter-spacing:0.2px;
+  }
 
   /* ---------- HERO ---------- */
   .hero{
@@ -54,7 +62,7 @@
   }
   @keyframes pulse{
     0%,100%{transform:scale(1);}
-    50%{transform:scale(1.06);}
+    50%{transform:scale(1.02);}
   }
   .cloud{
     position:absolute;
@@ -97,43 +105,50 @@
     bottom:100px;
     left:50%;
     transform:translateX(-50%);
-    animation:bob 3.5s ease-in-out infinite;
-    font-size:64px;
+    animation:bob 4.5s ease-in-out infinite;
+    font-size:46px;
     z-index:3;
+    opacity:0.9;
   }
   @keyframes bob{
-    0%,100%{ transform:translate(-50%,0) rotate(-3deg); }
-    50%{ transform:translate(-50%,-14px) rotate(3deg); }
+    0%,100%{ transform:translate(-50%,0) rotate(-1.5deg); }
+    50%{ transform:translate(-50%,-8px) rotate(1.5deg); }
   }
 
-  .hero h1{
-    font-size:clamp(2.2rem, 6vw, 4.2rem);
-    margin:0 0 8px;
+  .hero .eyebrow{
+    font-size:0.8rem;
+    letter-spacing:3px;
+    text-transform:uppercase;
     color:var(--sea1);
-    text-shadow:0 2px 0 rgba(255,255,255,0.6);
-    z-index:2;
-    letter-spacing:1px;
-  }
-  .hero p.tag{
-    font-size:clamp(1rem, 2.4vw, 1.4rem);
-    color:#7a1a3a;
-    max-width:520px;
-    margin:0 auto;
+    opacity:0.7;
+    margin:0 0 14px;
     z-index:2;
     font-weight:600;
   }
+  .hero h1{
+    font-size:clamp(2.4rem, 6vw, 4rem);
+    margin:0 0 14px;
+    color:var(--sea1);
+    z-index:2;
+    font-weight:500;
+  }
+  .hero p.tag{
+    font-size:clamp(1rem, 2vw, 1.2rem);
+    color:#5c2334;
+    max-width:520px;
+    margin:0 auto;
+    z-index:2;
+    font-weight:400;
+    line-height:1.6;
+  }
   .scroll-hint{
     position:absolute;
-    bottom:24px;
+    bottom:28px;
     left:50%;
     transform:translateX(-50%);
-    font-size:1.6rem;
-    animation:bounce 2s infinite;
+    font-size:1.3rem;
+    opacity:0.5;
     z-index:3;
-  }
-  @keyframes bounce{
-    0%,100%{ transform:translate(-50%,0); }
-    50%{ transform:translate(-50%,10px); }
   }
 
   /* ---------- SECTIONS ---------- */
@@ -144,47 +159,51 @@
   }
   .section-title{
     text-align:center;
-    font-size:clamp(1.6rem, 4vw, 2.4rem);
+    font-size:clamp(1.5rem, 3.4vw, 2.1rem);
+    font-weight:500;
     margin-bottom:8px;
   }
   .section-sub{
     text-align:center;
-    color:#4a6072;
+    color:#5c5058;
     margin-bottom:36px;
-    font-size:1.05rem;
+    font-size:1rem;
   }
 
   .grid{
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
-    gap:24px;
+    gap:22px;
   }
   .card{
     background:var(--card);
-    border-radius:20px;
+    border-radius:12px;
     padding:26px 22px;
-    box-shadow:0 10px 30px rgba(13,58,85,0.08);
-    transition:transform .25s ease, box-shadow .25s ease;
-    border:2px solid transparent;
+    box-shadow:0 4px 16px rgba(43,26,32,0.06);
+    transition:transform .2s ease, box-shadow .2s ease;
+    border:1px solid rgba(43,26,32,0.06);
+    overflow:hidden;
   }
   .card:hover{
-    transform:translateY(-6px) rotate(-0.3deg);
-    box-shadow:0 16px 34px rgba(13,58,85,0.14);
+    transform:translateY(-4px);
+    box-shadow:0 10px 24px rgba(43,26,32,0.1);
   }
   .card .icon{
-    font-size:2.6rem;
+    font-size:1.8rem;
     display:block;
     margin-bottom:10px;
+    opacity:0.85;
   }
   .card h3{
     margin:0 0 8px;
-    font-size:1.2rem;
+    font-size:1.1rem;
+    font-weight:500;
   }
   .card p{
     margin:0;
-    color:#3a4f60;
-    line-height:1.5;
-    font-size:0.98rem;
+    color:#5c5058;
+    line-height:1.55;
+    font-size:0.95rem;
   }
   .card.photo{ padding:0; }
   .card.photo img{
@@ -245,7 +264,7 @@
     background:repeating-radial-gradient(circle at center, #2b2b2b 0px, #2b2b2b 2px, #1a1a1a 3px, #1a1a1a 4px);
     margin:0 auto 26px;
     position:relative;
-    animation:spin 6s linear infinite;
+    animation:spin 10s linear infinite;
     box-shadow:0 10px 24px rgba(0,0,0,0.25);
   }
   .vinyl:after{
@@ -319,7 +338,7 @@
     object-fit:cover;
     display:block;
   }
-  .pet-item:hover .pet-card{ transform:scale(1.08) rotate(-2deg); }
+  .pet-item:hover .pet-card{ transform:scale(1.04); }
   .pet-item b{ font-size:1rem; }
   .pet-item small{ color:#c8677f; text-align:center; }
 
@@ -362,12 +381,13 @@
   <div class="cloud cloud1"></div>
   <div class="cloud cloud2"></div>
   <div class="sun"></div>
-  <h1>Hi, I'm Arianna! ⛵</h1>
-  <p class="tag">Sailor. Snow chaser. Country music devotee. Full-time human to two dogs and two cats.</p>
+  <p class="eyebrow">Welcome</p>
+  <h1>Arianna Kedersha</h1>
+  <p class="tag">Sailor and sailing coach. Skier. Finance student at UConn. Country music enthusiast, with two dogs and two cats keeping me company.</p>
   <div class="boat">⛵</div>
   <div class="waves">
     <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-      <path class="wave-path" fill="#1b8cc4" d="M0,64L60,58.7C120,53,240,43,360,48C480,53,600,75,720,80C840,85,960,75,1080,64C1200,53,1320,43,1380,37.3L1440,32L1440,120L0,120Z"></path>
+      <path class="wave-path" fill="#8c2c42" d="M0,64L60,58.7C120,53,240,43,360,48C480,53,600,75,720,80C840,85,960,75,1080,64C1200,53,1320,43,1380,37.3L1440,32L1440,120L0,120Z"></path>
     </svg>
   </div>
   <div class="scroll-hint">⌄</div>
@@ -539,7 +559,7 @@
 <script>
   // scatter a few snowflakes into the winter section
   const winter = document.getElementById('winter');
-  for(let i=0;i<24;i++){
+  for(let i=0;i<12;i++){
     const flake = document.createElement('div');
     flake.className = 'snowflake';
     flake.textContent = '❄';
